@@ -16,12 +16,12 @@ import {
 
 class Home extends Component {
     
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
-            showMobileMesssage: false,
-            showEmailMesssage: false,
+            showMobileMessage: false,
+            showEmailMessage: false,
             activeItem: 'View Acccounts' 
         }
         this.handleMobileChange = this.handleMobileChange.bind(this);
@@ -31,12 +31,10 @@ class Home extends Component {
     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     handleMobileChange(event) {
-        event.preventDefault();
-        this.setState({ showMobileMesssage: true });
+        this.setState(oldState => ({ showMobileMessage: !oldState.showMobileMessage }));
     }
     handleEmailChange(event) {
-        event.preventDefault();
-        this.setState({ showEmailMesssage: true });
+        this.setState(oldState => ({ showEmailMessage: !oldState.showEmailMessage }));
     }
 
     render() {
@@ -49,7 +47,7 @@ class Home extends Component {
             { key: '9011', value: '9011', flag: 'dz', text: 'XXXX XXXX 9011' },
             { key: '2952', value: '2952', flag: 'as', text: 'XXXX XXXX 2952' }
         ]
-
+        
         return (
             <div className="appContent">
                 <br />
@@ -79,7 +77,6 @@ class Home extends Component {
                     </Menu>        
 
                     <Segment attached={"bottom"}>
-
                         <Message
                             info
                             icon='info circle'
@@ -99,7 +96,6 @@ class Home extends Component {
                             <Step link icon='check circle outline' title='Confirm Password' description='Reset your password' />
                         </Step.Group>
 
-
                         <br />
 
                         <Segment>
@@ -110,17 +106,15 @@ class Home extends Component {
                             />
                             <br />
                             <br />
-                            {this.state.showMobileMesssage
-                                ?
+                            <div className={this.state.showMobileMessage ? "" : "hidden"} >
                                 <Message positive >
                                     <Message.Header>You have enabled mobile notification</Message.Header>
                                     <p>
                                         You will start receiving mobile notifications on your registered mobile number 07XXXX X3951. If you want to change your mobile number please <a href="https://www.nationwide.co.uk/support/support-articles/how-to/view-or-change-your-email-address-online" >click here</a>.
                                     </p>
                                 </Message>
-                                :
-                                null
-                            }
+                                <br />
+                            </div>
                             <Checkbox
                                 toggle
                                 onChange={this.handleEmailChange}
@@ -128,17 +122,14 @@ class Home extends Component {
                             />
                             <br />
                             <br />
-                            {this.state.showEmailMesssage
-                                ?
+                            <div className={this.state.showEmailMessage ? "" : "hidden"}>
                                 <Message positive>
                                     <Message.Header>You have enabled email notification</Message.Header>
                                     <p>
                                         You will start receiving email notifications on your registered email id saXXXXXXXXXX17@gmail.com. If you want to change your email id please <a href="https://www.nationwide.co.uk/support/support-articles/how-to/view-or-change-your-email-address-online" >click here</a>.
                                     </p>
                                 </Message>
-                                :
-                                null
-                            }
+                            </div>
                         </Segment>
 
                         <Segment>
@@ -159,7 +150,6 @@ class Home extends Component {
                         </Segment>
 
                         <Segment>
-
                             <Message
                                 info
                                 icon='info circle'
