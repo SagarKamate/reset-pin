@@ -7,6 +7,7 @@ import {
 import AppHeader from './Header.js';
 import AppFooter from './Footer.js';
 import Home from './Home.js';
+import { Segment } from 'semantic-ui-react';
 
 class App extends Component {
 
@@ -35,8 +36,11 @@ const Content = () => (
 
 const About = () => <h1>My About Page</h1>;
 
-const PageNotFound = () => 
-    <h1>
-        Page Not Found
-  </h1>;
+const PageNotFound = () =>
+    <Segment textAlign="center" className="pageNotFound">
+        <h1>
+            Page Not Found
+      </h1>
+    </Segment>;   
+
 export default App;
