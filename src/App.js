@@ -6,7 +6,8 @@ import {
 } from 'react-router-dom';
 import AppHeader from './Header.js';
 import AppFooter from './Footer.js';
-import Home from './Home.js';
+import Reset from './Reset.js';
+import Manage from './Manage.js';
 import { Segment } from 'semantic-ui-react';
 
 class App extends Component {
@@ -27,8 +28,10 @@ class App extends Component {
 
 const Content = () => (
     <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={Manage} />
+        <Route exact path="/home" component={Manage} />
+        <Route exact path="/manage" component={Manage} />
+        <Route exact path="/reset" component={Reset} />
         <Route path="/about" component={About} />
         <Route path="" component={PageNotFound} />
     </Switch>
