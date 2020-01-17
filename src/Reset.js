@@ -351,7 +351,7 @@ class Manage extends Component {
                                     search
                                     selection
                                     options={cardOptions}
-                                    onChange={this.onDebitCardSelect}
+                                    //onChange={this.onDebitCardSelect}
                                     noResultsMessage={"No debit card details found"}
                                 />
                         </Segment>
