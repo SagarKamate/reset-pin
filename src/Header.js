@@ -15,7 +15,7 @@ const AppFooter = () => (
                         <div className="logo"></div>
                     </Grid.Column>
                     <Grid.Column className="appTitle" textAlign={"center"} width={10}>
-                        <Header as='h2'>Reset PIN</Header>
+                        <Header as='h2'>Internet Banking</Header>
                     </Grid.Column>
                     <Grid.Column floated='right' className="appLogout" width={3}>
                         <Button color='purple'><b>Logout</b></Button>
